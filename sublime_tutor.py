@@ -22,9 +22,10 @@ class SublimeTutorCommand(sublime_plugin.WindowCommand):
             app_path = executable_path[:executable_path.rfind(".app/")+5]
             executable_path = app_path+"Contents/SharedSupport/bin/subl"
 
+        tutorial_dir = 'tutorial_cn'
         plugin_dir = os.path.dirname(os.path.realpath(__file__))
-        tutorial_dir = os.path.join(plugin_dir, 'tutorial')
-        chapter_1 = os.path.join(plugin_dir, 'tutorial', 'README.md')
+        tutorial_dir = os.path.join(plugin_dir, tutorial_dir)
+        chapter_1 = os.path.join(plugin_dir, tutorial_dir, 'README.md')
 
         subprocess.Popen([
             executable_path, tutorial_dir, chapter_1, '--project',
